@@ -21,10 +21,10 @@ public class JobQueueCenter {
         }
     }
     
-    fileprivate lazy var storage: JobQueue = {
+    fileprivate lazy var storage: JobQueueStorage = {
         let archivedQ = NSKeyedUnarchiver.unarchiveObject(withFile: storageURL.path)
         
-        if let queue = archivedQ as? JobQueue {
+        if let queue = archivedQ as? JobQueueStorage {
             guard queue.isCompatible == true else {
                 do {
                     try FileManager.default.removeItem(at: JobQueueCenter.storageURL)
@@ -59,7 +59,9 @@ public extension JobQueueCenter {
     public func enqueue(job: Job) {
         storageAccessQueue.async {
             print("JobQueueCenter: enqueuing job \(job)")
-            self.storage.enqueue(job)
+            DispatchQueue(label: "com.JobQueueCenter.executionQueue").async {
+                self.storage.enqueue(job)
+            }
         }
     }
     

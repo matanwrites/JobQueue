@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-class JobQueue : NSObject, NSCoding {
+class JobQueue : NSObject, JobQueueStorage {
     fileprivate var array = [Job]()
     
 //    var version: String = "myappversion"

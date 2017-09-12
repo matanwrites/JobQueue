@@ -14,6 +14,7 @@
 		83A4F5221F6178EA00958A32 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4F5211F6178EA00958A32 /* Helpers.swift */; };
 		83A4F5501F61889200958A32 /* JobQueueCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4F54F1F61889200958A32 /* JobQueueCenter.swift */; };
 		83A4F5521F6188C200958A32 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4F5511F6188C200958A32 /* Job.swift */; };
+		83C6A05E1F68422D007750FB /* JobQueueStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C6A05D1F68422D007750FB /* JobQueueStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		83A4F5211F6178EA00958A32 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		83A4F54F1F61889200958A32 /* JobQueueCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobQueueCenter.swift; sourceTree = "<group>"; };
 		83A4F5511F6188C200958A32 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		83C6A05D1F68422D007750FB /* JobQueueStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobQueueStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				83416B781F46CAC200A002AE /* Sources */,
+				83416B771F46CAB300A002AE /* Supporting Files */,
 			);
 			path = JobQueue;
 			sourceTree = "<group>";
@@ -106,10 +109,10 @@
 			isa = PBXGroup;
 			children = (
 				83A4F54F1F61889200958A32 /* JobQueueCenter.swift */,
+				83C6A05D1F68422D007750FB /* JobQueueStorage.swift */,
 				83416B791F46CAD800A002AE /* JobQueue.swift */,
 				83A4F5511F6188C200958A32 /* Job.swift */,
 				83A4F5211F6178EA00958A32 /* Helpers.swift */,
-				83416B771F46CAB300A002AE /* Supporting Files */,
 			);
 			name = Sources;
 			sourceTree = "<group>";
@@ -227,6 +230,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83C6A05E1F68422D007750FB /* JobQueueStorage.swift in Sources */,
 				83416B7A1F46CAD800A002AE /* JobQueue.swift in Sources */,
 				83A4F5501F61889200958A32 /* JobQueueCenter.swift in Sources */,
 				83A4F5221F6178EA00958A32 /* Helpers.swift in Sources */,
