@@ -9,7 +9,7 @@
 import Foundation
 
 public class JobQueueCenter {
-    static let storageURL = FileManager.default.documentDirectoryURL.appendingPathComponent("JobQueueCenter.storage")
+    static let storageURL = FileManager.default.cacheDirectoryURL.appendingPathComponent("JobQueueCenter.storage")
     fileprivate let storageAccessQueue = DispatchQueue(label: "com.JobQueue.JobQueueCenter.storageAccessQueue")
     let saveInterval: TimeInterval = 3
     
