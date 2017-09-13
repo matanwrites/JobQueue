@@ -16,10 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
         JobQueueCenter.current.executeNext()
-        
-        
         return true
     }
     
@@ -33,6 +30,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func applicationWillTerminate(_ application: UIApplication) {
         JobQueueCenter.current.tryPersist()
+    }
+    
+    func intermitentSaveForDebug() {
+        Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
+            JobQueueCenter.current.persist()
+        }
+    }
+    
+    func applicationDidBecomeActive(_ application: UIApplication) {
+//        for easier debug
+        JobQueueCenter.current.executeNext()
     }
 }
 
