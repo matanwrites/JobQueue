@@ -11,6 +11,7 @@ import Foundation
 public class JobQueueCenter {
     static let storageURL = FileManager.default.cacheDirectoryURL.appendingPathComponent("JobQueueCenter.storage")
     fileprivate let storageAccessQueue = DispatchQueue(label: "com.JobQueue.JobQueueCenter.storageAccessQueue")
+    public static let jobRetryEnqueueNotification = Notification.Name(rawValue: "jobRetryEnqueueNotification")
     let saveInterval: TimeInterval = 3
     
     
@@ -18,6 +19,16 @@ public class JobQueueCenter {
     fileprivate init() {
         NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidReceiveMemoryWarning, object: nil, queue: nil) { _ in
             self.persist()
+        }
+        
+        NotificationCenter.default.addObserver(forName: JobQueueCenter.jobRetryEnqueueNotification, object: nil, queue: nil) { notification in
+            let job = notification.object as! Job
+            if job.retryableCount > 0 {
+                print("Enqueing job again for retry \(job.retryableCount) times left")
+                self.enqueue(job: job)
+            } else {
+                 print("Job cannot be retried anymore, already ran it \(job.retryableCount) times")
+            }
         }
     }
     
