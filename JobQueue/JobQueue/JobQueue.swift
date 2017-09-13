@@ -31,7 +31,7 @@ class JobQueue : NSObject, JobQueueStorage {
 //            let version     = aDecoder.decodeObject(forKey: "version") as? String,
             let array       = aDecoder.decodeObject(forKey: "array") as? [Job]
             else {
-                print("Errror: JobQueue-initWithCoder")
+                print("Error: JobQueue-initWithCoder")
                 return nil
         }
         
