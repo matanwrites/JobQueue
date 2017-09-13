@@ -8,10 +8,13 @@
 
 import Foundation
 
+public extension Notification.Name {
+    static let JobFailedNotification = Notification.Name("jobFailedNotification")
+}
+
 public class JobQueueCenter {
     static let storageURL = FileManager.default.cacheDirectoryURL.appendingPathComponent("JobQueueCenter.storage")
     fileprivate let storageAccessQueue = DispatchQueue(label: "com.JobQueue.JobQueueCenter.storageAccessQueue")
-    public static let jobRetryEnqueueNotification = Notification.Name(rawValue: "jobRetryEnqueueNotification")
     let saveInterval: TimeInterval = 3
     
     
@@ -21,7 +24,7 @@ public class JobQueueCenter {
             self.persist()
         }
         
-        NotificationCenter.default.addObserver(forName: JobQueueCenter.jobRetryEnqueueNotification, object: nil, queue: nil) { notification in
+        NotificationCenter.default.addObserver(forName: Notification.Name.JobFailedNotification, object: nil, queue: nil) { notification in
             let job = notification.object as! Job
             if job.retryableCount > 0 {
                 print("Enqueing job again for retry \(job.retryableCount) times left")

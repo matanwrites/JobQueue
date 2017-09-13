@@ -60,7 +60,7 @@ class DocumentUploadService : NSObject, Job {
             //if the job suceedeed there is nothing left to do.
             guard $0 == false else { return }
             
-             NotificationCenter.default.post(name: JobQueueCenter.jobRetryEnqueueNotification, object: self)
+             NotificationCenter.default.post(name: Notification.Name.JobFailedNotification, object: self)
         }
     }
 }
