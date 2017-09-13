@@ -14,6 +14,9 @@
 		83A4F53A1F61831B00958A32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 83A4F5381F61831B00958A32 /* LaunchScreen.storyboard */; };
 		83A4F54A1F61833F00958A32 /* JobQueue.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83A4F5471F61832D00958A32 /* JobQueue.framework */; };
 		83A4F54B1F61833F00958A32 /* JobQueue.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 83A4F5471F61832D00958A32 /* JobQueue.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		83C77ECC1F6924690013E731 /* DummyJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C77ECB1F6924690013E731 /* DummyJob.swift */; };
+		83C77ECE1F6924CF0013E731 /* RecommendationJob.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C77ECD1F6924CF0013E731 /* RecommendationJob.swift */; };
+		83C77ED01F69253B0013E731 /* DocumentUploadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83C77ECF1F69253B0013E731 /* DocumentUploadService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		83A4F5391F61831B00958A32 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		83A4F53B1F61831B00958A32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83A4F5411F61832D00958A32 /* JobQueue.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = JobQueue.xcodeproj; path = ../JobQueue/JobQueue.xcodeproj; sourceTree = "<group>"; };
+		83C77ECB1F6924690013E731 /* DummyJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DummyJob.swift; sourceTree = "<group>"; };
+		83C77ECD1F6924CF0013E731 /* RecommendationJob.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecommendationJob.swift; sourceTree = "<group>"; };
+		83C77ECF1F69253B0013E731 /* DocumentUploadService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DocumentUploadService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,11 +104,9 @@
 			isa = PBXGroup;
 			children = (
 				83A4F52F1F61831B00958A32 /* AppDelegate.swift */,
-				83A4F5311F61831B00958A32 /* ViewController.swift */,
-				83A4F5331F61831B00958A32 /* Main.storyboard */,
-				83A4F5361F61831B00958A32 /* Assets.xcassets */,
-				83A4F5381F61831B00958A32 /* LaunchScreen.storyboard */,
-				83A4F53B1F61831B00958A32 /* Info.plist */,
+				83C77EC91F6924000013E731 /* UI */,
+				83C77EC81F6923FA0013E731 /* Jobs */,
+				83C77ECA1F6924140013E731 /* Resources */,
 			);
 			path = JobQueueExample;
 			sourceTree = "<group>";
@@ -114,6 +118,35 @@
 				83A4F5491F61832D00958A32 /* JobQueueTests.xctest */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		83C77EC81F6923FA0013E731 /* Jobs */ = {
+			isa = PBXGroup;
+			children = (
+				83C77ECB1F6924690013E731 /* DummyJob.swift */,
+				83C77ECD1F6924CF0013E731 /* RecommendationJob.swift */,
+				83C77ECF1F69253B0013E731 /* DocumentUploadService.swift */,
+			);
+			name = Jobs;
+			sourceTree = "<group>";
+		};
+		83C77EC91F6924000013E731 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				83A4F5311F61831B00958A32 /* ViewController.swift */,
+				83A4F5331F61831B00958A32 /* Main.storyboard */,
+				83A4F5381F61831B00958A32 /* LaunchScreen.storyboard */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		83C77ECA1F6924140013E731 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				83A4F53B1F61831B00958A32 /* Info.plist */,
+				83A4F5361F61831B00958A32 /* Assets.xcassets */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +185,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 3GQZ9TL5M3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -215,7 +253,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				83A4F5321F61831B00958A32 /* ViewController.swift in Sources */,
+				83C77ED01F69253B0013E731 /* DocumentUploadService.swift in Sources */,
 				83A4F5301F61831B00958A32 /* AppDelegate.swift in Sources */,
+				83C77ECE1F6924CF0013E731 /* RecommendationJob.swift in Sources */,
+				83C77ECC1F6924690013E731 /* DummyJob.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -391,6 +432,7 @@
 				83A4F5401F61831B00958A32 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
