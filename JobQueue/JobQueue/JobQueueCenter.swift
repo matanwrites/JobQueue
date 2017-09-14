@@ -20,9 +20,10 @@ public class JobQueueCenter {
     
     
     fileprivate init() {
-        NotificationCenter.default.addObserver(forName: NSNotification.Name.UIApplicationDidReceiveMemoryWarning, object: nil, queue: nil) { _ in
-            self.persist()
-        }
+        NotificationCenter.default.addObserver(self, selector: #selector(tryPersist), name: .UIApplicationDidReceiveMemoryWarning, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(tryPersist), name: .UIApplicationWillResignActive, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(tryPersist), name: .UIApplicationDidEnterBackground, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(tryPersist), name: .UIApplicationWillTerminate, object: nil)
         
         NotificationCenter.default.addObserver(forName: Notification.Name.JobFailedNotification, object: nil, queue: nil) { notification in
             let job = notification.object as! Job
@@ -101,7 +102,7 @@ public extension JobQueueCenter {
         }
     }
     
-    public func tryPersist() {
+    @objc public func tryPersist() {
         print("JobQueueCenter: tryPersisting")
         guard Date().timeIntervalSince(storage.storageSaveDate) > saveInterval else {
             return print("JobQueueCenter: ignoring tryPersisting, time since last save is too short")
@@ -110,7 +111,7 @@ public extension JobQueueCenter {
         persist()
     }
     
-    public func persist() {
+    @objc public func persist() {
         self.storageAccessQueue.async {
             print("JobQueueCenter: persisting")
             guard NSKeyedArchiver.archiveRootObject(self.storage, toFile: JobQueueCenter.storageURL.path) == true else {

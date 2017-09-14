@@ -24,7 +24,7 @@ class DocumentUploadService : NSObject, Job {
         DispatchQueue(label: "networking").asyncAfter(deadline: .now() + 5) {
             
             DispatchQueue.main.async {
-//                let's say it only succeed after the second time
+                //let's say it only succeed after the second time
                 if self.retryableCount == 1 {
                     print("successfully uploaded our document!")
                     complete(true)

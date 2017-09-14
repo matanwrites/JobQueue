@@ -19,19 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         JobQueueCenter.current.executeNext()
         return true
     }
-    
-    func applicationWillResignActive(_ application: UIApplication) {
-        JobQueueCenter.current.tryPersist()
-    }
-    
-    func applicationDidEnterBackground(_ application: UIApplication) {
-        JobQueueCenter.current.tryPersist()
-    }
-    
-    func applicationWillTerminate(_ application: UIApplication) {
-        JobQueueCenter.current.tryPersist()
-    }
-    
+        
     func intermitentSaveForDebug() {
         Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { _ in
             JobQueueCenter.current.persist()
