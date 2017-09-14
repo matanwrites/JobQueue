@@ -20,6 +20,9 @@ class DocumentUploadService : NSObject, Job {
     }
     
     func execute(complete: @escaping (Bool)->Void) {
+        //do something with the document argument
+        print(document)
+        
         //our long fake networking method
         DispatchQueue(label: "networking").asyncAfter(deadline: .now() + 5) {
             
@@ -42,10 +45,11 @@ class DocumentUploadService : NSObject, Job {
     //MARK: Job
     var retryableCount: Int = 3
     
-    required init?(coder aDecoder: NSCoder) {
+    required convenience init?(coder aDecoder: NSCoder) {
         guard let document = aDecoder.decodeObject(forKey: "document") as? Data else { return nil }
         let retryableCount = aDecoder.decodeInteger(forKey: "retryableCount")
-        self.document = document
+        
+        self.init(document: document)
         self.retryableCount = retryableCount
     }
     
