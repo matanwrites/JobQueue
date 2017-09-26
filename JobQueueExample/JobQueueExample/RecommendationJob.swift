@@ -8,30 +8,31 @@
 
 import Foundation
 import JobQueue
+//
+//class SurfingSpotRecommendationInteractor : NSObject, Job {
+//    //MARK: -
+//    //MARK: Our usual business code doing something useful
+//    var spotName: String
+//    
+//    func execute(visitedSpotCoordinates: [Double]) {
+//        
+//    }
+//    
+//    //MARK: -
+//    //MARK: - Job
+//    var retryableCount: Int = 0
+//    
+//    required init?(coder aDecoder: NSCoder) {
+//        guard let spotName = aDecoder.decodeObject(forKey: "spotName") as? String else { return nil }
+//        self.spotName = spotName
+//    }
+//    
+//    func encode(with aCoder: NSCoder) {
+//        aCoder.encode(spotName, forKey: "spotName")
+//    }
+//    
+//    func run() {
+////        execute(visitedSpotCoordinates: <#T##[Double]#>)
+//    }
+//}
 
-class SurfingSpotRecommendationInteractor : NSObject, Job {
-    //MARK: -
-    //MARK: Our usual business code doing something useful
-    var spotName: String
-    
-    func execute(visitedSpotCoordinates: [Double]) {
-        
-    }
-    
-    //MARK: -
-    //MARK: - Job
-    var retryableCount: Int = 0
-    
-    required init?(coder aDecoder: NSCoder) {
-        guard let spotName = aDecoder.decodeObject(forKey: "spotName") as? String else { return nil }
-        self.spotName = spotName
-    }
-    
-    func encode(with aCoder: NSCoder) {
-        aCoder.encode(spotName, forKey: "spotName")
-    }
-    
-    func run() {
-//        execute(visitedSpotCoordinates: <#T##[Double]#>)
-    }
-}

@@ -19,6 +19,10 @@ class DocumentUploadService : NSObject, Job {
         super.init()
     }
     
+    required override init() {
+        self.document = Data()
+    }
+    
     func execute(complete: @escaping (Bool)->Void) {
         //do something with the document argument
         print(document)
@@ -43,7 +47,31 @@ class DocumentUploadService : NSObject, Job {
     
     //MARK: -
     //MARK: Job
+    enum CodingKeys : String, CodingKey {
+        case retryableCount
+        case document
+    }
+    
     var retryableCount: Int = 3
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        
+        self.retryableCount = try container.decode(type(of: retryableCount), forKey: .retryableCount)
+        self.document = try container.decode(type(of: document), forKey: .document)
+    }
+    
+    
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(retryableCount, forKey: .retryableCount)
+        try container.encode(document, forKey: .document)
+    }
+    
+    
+    
     
     required convenience init?(coder aDecoder: NSCoder) {
         guard let document = aDecoder.decodeObject(forKey: "document") as? Data else { return nil }

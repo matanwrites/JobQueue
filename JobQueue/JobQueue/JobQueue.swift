@@ -11,6 +11,10 @@ import Foundation
 class JobQueue : NSObject, JobQueueStorage {
     fileprivate var array = [Job]()
     
+    enum CodingKeys : String, CodingKey {
+        case array
+    }
+    
 //    var version: String = "myappversion"
     
     var isCompatible: Bool {
@@ -26,6 +30,29 @@ class JobQueue : NSObject, JobQueueStorage {
     
     
     //MARK: Persistence
+    
+    required init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        
+        self.array = try container.decode([AnyJob].self, forKey: .array).map { $0.base }
+    }
+    
+    
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(array.map(AnyJob.init), forKey: .array)
+    }
+    
+    
+    
+    
+    
+    
+    
+    
     required init?(coder aDecoder: NSCoder) {
         guard
 //            let version     = aDecoder.decodeObject(forKey: "version") as? String,
@@ -46,6 +73,7 @@ class JobQueue : NSObject, JobQueueStorage {
 //        aCoder.encode(version,                forKey: "version")
         aCoder.encode(NSArray(array: array),  forKey: "array")
     }
+    
     
     
     var items: [Job] { return array }
@@ -72,4 +100,3 @@ class JobQueue : NSObject, JobQueueStorage {
         return array.first
     }
 }
-

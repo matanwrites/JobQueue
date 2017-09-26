@@ -37,7 +37,20 @@ public class JobQueueCenter {
     }
     
     fileprivate lazy var storage: JobQueueStorage = {
-        let archivedQ = NSKeyedUnarchiver.unarchiveObject(withFile: storageURL.path)
+//        let archivedQ = NSKeyedUnarchiver.unarchiveObject(withFile: storageURL.path)
+        
+        guard let data = FileManager.default.contents(atPath: storageURL.path) else {
+            return JobQueue()
+        }
+        
+        
+        
+        let archivedQ: Decodable?
+        do {
+            archivedQ = try JSONDecoder().decode(JobQueue.self, from: data)
+        } catch {
+            return JobQueue()
+        }
         
         if let queue = archivedQ as? JobQueueStorage {
             guard queue.isCompatible == true else {
@@ -76,6 +89,7 @@ public extension JobQueueCenter {
             print("JobQueueCenter: enqueuing job \(job)")
             DispatchQueue(label: "com.JobQueueCenter.executionQueue").async {
                 self.storage.enqueue(job)
+                self.persist()
             }
         }
     }
@@ -88,6 +102,9 @@ public extension JobQueueCenter {
             print("JobQueueCenter: 1. trying to execute next job in queue")
             if let job = self.storage.dequeue() {
                 print("JobQueueCenter: 2. executing job: \(job)")
+                
+//                let concrete = NSClassFromString(job.concreteType) as! Job
+//                concrete.run()
                 job.run()
             } else {
                 print("JobQueueCenter: 2. there is no job in queue")
@@ -114,9 +131,17 @@ public extension JobQueueCenter {
     @objc public func persist() {
         self.storageAccessQueue.async {
             print("JobQueueCenter: persisting")
-            guard NSKeyedArchiver.archiveRootObject(self.storage, toFile: JobQueueCenter.storageURL.path) == true else {
-                return print("Error: NSKeyedArchiver.archiveRootObject")
+            let encoder = JSONEncoder()
+
+       
+            do {
+                let data = try encoder.encode(self.storage as! JobQueue)
+                try data.write(to: JobQueueCenter.storageURL)
+            } catch {
+                print("Error: \(error)")
             }
+            
+            
         }
     }
 }
