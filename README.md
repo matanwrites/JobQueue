@@ -2,7 +2,7 @@
 
 [![CI Status](http://img.shields.io/travis/matanwrites/JobQueue.svg?style=flat)](https://travis-ci.org/matanwrites/JobQueue)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]
+[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/matanwrites/JobQueue/blob/master/LICENSE.md)
 
 Delayed JobQueue which can execute task between app launches
 
