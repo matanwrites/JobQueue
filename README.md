@@ -6,10 +6,12 @@
 
 Delayed JobQueue which can execute task between app launches
 
+**Supported Swift Versions:** Swift 3.1
+
+
 ## Motivation
 https://medium.com/@mathieutan/what-can-we-learn-from-backend-development-as-ios-developers-implementing-a-jobqueue-df8b9a5444fe
 
-**Supported Swift Versions:** Swift 3.1
 
 ## Carthage
 
