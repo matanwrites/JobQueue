@@ -4,8 +4,8 @@
 
 matrix:
   include:
-    - osx_image: xcode8.3
-      env: DESTINATION="iPhone 6s Plus (9.3)" SWIFT_VERSION="3.1"
+    - osx_image: xcode9
+      env: DESTINATION="iPhone X (11.0)" SWIFT_VERSION="4.0"
 
 language: objective-c
 before_install:
