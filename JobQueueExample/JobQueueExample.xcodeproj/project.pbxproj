@@ -543,6 +543,7 @@
 				83F476CC1F889F5300202197 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
