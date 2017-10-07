@@ -16,7 +16,7 @@ before_install:
 script:
 - set -o pipefail && xcodebuild test
  `` -enableCodeCoverage YES
- `` -workspace JobQueueExample/JobQueueExample.xcodeproj
+ `` -project JobQueueExample/JobQueueExample.xcodeproj
  `` -scheme JobQueueExample
  `` -sdk iphonesimulator
  `` -destination "id=$DESTINATION_UDID"
