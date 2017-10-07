@@ -2,14 +2,16 @@
 
 [![CI Status](http://img.shields.io/travis/matanwrites/JobQueue.svg?style=flat)](https://travis-ci.org/matanwrites/JobQueue)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
-[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)]
+[![License MIT](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](https://github.com/matanwrites/JobQueue/blob/master/LICENSE.md)
 
 Delayed JobQueue which can execute task between app launches
+
+**Supported Swift Versions:** Swift 3.1
+
 
 ## Motivation
 https://medium.com/@mathieutan/what-can-we-learn-from-backend-development-as-ios-developers-implementing-a-jobqueue-df8b9a5444fe
 
-**Supported Swift Versions:** Swift 3.1
 
 ## Carthage
 
