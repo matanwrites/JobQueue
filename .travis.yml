@@ -9,6 +9,9 @@ matrix:
 
 language: objective-c
 before_install:
+- brew update
+- brew install carthage
+- carthage bootstrap --verbose
 # Grepping destination device udid
 - DESTINATION_UDID=$(instruments -s devices | grep "$DESTINATION \[" | sed -E 's/.*\[([0-9A-F-]+)\].*/\1/g')
 # Prelaunching simulator to avoid timeout https://github.com/travis-ci/travis-ci/issues/6422
