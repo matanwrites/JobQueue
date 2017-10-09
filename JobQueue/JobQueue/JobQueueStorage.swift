@@ -8,13 +8,13 @@
 
 import Foundation
 
-protocol JobQueueStorage : NSCoding {
+protocol JobQueueStorage: NSCoding {
     func enqueue(_ element: Job)
-    func dequeue()-> Job?
+    func dequeue() -> Job?
     func dequeueAll()
-    
+
     var storageSaveDate: Date { get }
     var items: [Job] { get }
-    
+
     var isCompatible: Bool { get }
 }

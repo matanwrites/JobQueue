@@ -8,8 +8,7 @@
 
 import Foundation
 
-public protocol Job : NSCoding {
+public protocol Job: NSCoding {
     var retryableCount: Int { get }
-    
     func run()
 }

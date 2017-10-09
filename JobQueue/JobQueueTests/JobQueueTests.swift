@@ -15,19 +15,19 @@ import Quick
 class JobQueueCenterSpec: QuickSpec {
     override func spec() {
         describe("JobQueueCenter items") {
-            
+
             beforeEach {
                 JobQueueCenter.current.flush()
             }
-            
+
             context("When no jobs") {
                 it("returns an empty array") {
                     let s = JobQueueCenter.current.items
-                    
+
                     expect(s).to(beEmpty())
                 }
             }
-            
+
             context("When has a job") {
                 it("returns a job") {
                     JobQueueCenter.current.enqueue(job: DummyJob())
@@ -35,8 +35,7 @@ class JobQueueCenterSpec: QuickSpec {
                 }
             }
         }
-        
-        
+
         describe("JobQueueCenter flush") {
             it("empty the storage") {
                 JobQueueCenter.current.enqueue(job: DummyJob())
