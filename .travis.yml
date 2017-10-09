@@ -18,7 +18,7 @@ install:
   - ./install_swiftlint.sh
 
 script:
-- swiftlint
+- cd JobQueue; swiftlint; cd -
 - set -o pipefail && xcodebuild test
  `` -enableCodeCoverage YES
  `` -project JobQueueExample/JobQueueExample.xcodeproj
