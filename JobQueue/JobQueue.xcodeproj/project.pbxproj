@@ -11,6 +11,11 @@
 		83416B6C1F46CA9F00A002AE /* JobQueueTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83416B6B1F46CA9F00A002AE /* JobQueueTests.swift */; };
 		83416B6E1F46CA9F00A002AE /* JobQueue.h in Headers */ = {isa = PBXBuildFile; fileRef = 83416B601F46CA9F00A002AE /* JobQueue.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		83416B7A1F46CAD800A002AE /* JobQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83416B791F46CAD800A002AE /* JobQueue.swift */; };
+		83705ADE1F8B4BDB001CEBEC /* Nimble.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83705ADC1F8B4BDB001CEBEC /* Nimble.framework */; };
+		83705ADF1F8B4BDB001CEBEC /* Quick.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 83705ADD1F8B4BDB001CEBEC /* Quick.framework */; };
+		83705AE11F8B4BFD001CEBEC /* Nimble.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83705ADC1F8B4BDB001CEBEC /* Nimble.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		83705AE21F8B4BFD001CEBEC /* Quick.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 83705ADD1F8B4BDB001CEBEC /* Quick.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		83705AE51F8B5325001CEBEC /* TestHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83705AE41F8B5325001CEBEC /* TestHelpers.swift */; };
 		83A4F5221F6178EA00958A32 /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4F5211F6178EA00958A32 /* Helpers.swift */; };
 		83A4F5501F61889200958A32 /* JobQueueCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4F54F1F61889200958A32 /* JobQueueCenter.swift */; };
 		83A4F5521F6188C200958A32 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83A4F5511F6188C200958A32 /* Job.swift */; };
@@ -27,6 +32,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		83705AE01F8B4BE2001CEBEC /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				83705AE11F8B4BFD001CEBEC /* Nimble.framework in CopyFiles */,
+				83705AE21F8B4BFD001CEBEC /* Quick.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		83416B5D1F46CA9F00A002AE /* JobQueue.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = JobQueue.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83416B601F46CA9F00A002AE /* JobQueue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JobQueue.h; sourceTree = "<group>"; };
@@ -35,6 +54,9 @@
 		83416B6B1F46CA9F00A002AE /* JobQueueTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobQueueTests.swift; sourceTree = "<group>"; };
 		83416B6D1F46CA9F00A002AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		83416B791F46CAD800A002AE /* JobQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobQueue.swift; sourceTree = "<group>"; };
+		83705ADC1F8B4BDB001CEBEC /* Nimble.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Nimble.framework; path = Carthage/Build/iOS/Nimble.framework; sourceTree = "<group>"; };
+		83705ADD1F8B4BDB001CEBEC /* Quick.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Quick.framework; path = Carthage/Build/iOS/Quick.framework; sourceTree = "<group>"; };
+		83705AE41F8B5325001CEBEC /* TestHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestHelpers.swift; sourceTree = "<group>"; };
 		83A4F5211F6178EA00958A32 /* Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		83A4F54F1F61889200958A32 /* JobQueueCenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobQueueCenter.swift; sourceTree = "<group>"; };
 		83A4F5511F6188C200958A32 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
@@ -53,6 +75,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83705ADE1F8B4BDB001CEBEC /* Nimble.framework in Frameworks */,
+				83705ADF1F8B4BDB001CEBEC /* Quick.framework in Frameworks */,
 				83416B671F46CA9F00A002AE /* JobQueue.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -66,6 +90,7 @@
 				83416B5F1F46CA9F00A002AE /* JobQueue */,
 				83416B6A1F46CA9F00A002AE /* JobQueueTests */,
 				83416B5E1F46CA9F00A002AE /* Products */,
+				83705ADB1F8B4BDA001CEBEC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -91,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				83416B6B1F46CA9F00A002AE /* JobQueueTests.swift */,
+				83705AE41F8B5325001CEBEC /* TestHelpers.swift */,
 				83416B6D1F46CA9F00A002AE /* Info.plist */,
 			);
 			path = JobQueueTests;
@@ -115,6 +141,15 @@
 				83A4F5211F6178EA00958A32 /* Helpers.swift */,
 			);
 			name = Sources;
+			sourceTree = "<group>";
+		};
+		83705ADB1F8B4BDA001CEBEC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				83705ADC1F8B4BDB001CEBEC /* Nimble.framework */,
+				83705ADD1F8B4BDB001CEBEC /* Quick.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +191,7 @@
 				83416B621F46CA9F00A002AE /* Sources */,
 				83416B631F46CA9F00A002AE /* Frameworks */,
 				83416B641F46CA9F00A002AE /* Resources */,
+				83705AE01F8B4BE2001CEBEC /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -174,18 +210,19 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0830;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = taiyungo;
 				TargetAttributes = {
 					83416B5C1F46CA9F00A002AE = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 3GQZ9TL5M3;
-						LastSwiftMigration = 0830;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					83416B651F46CA9F00A002AE = {
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = 3GQZ9TL5M3;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -243,6 +280,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				83416B6C1F46CA9F00A002AE /* JobQueueTests.swift in Sources */,
+				83705AE51F8B5325001CEBEC /* TestHelpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -267,7 +305,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -275,7 +315,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -321,7 +365,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -329,7 +375,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -376,7 +426,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -397,7 +448,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.taiyungo.JobQueue;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -406,11 +458,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 3GQZ9TL5M3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = JobQueueTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.taiyungo.JobQueueTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -419,11 +476,16 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				DEVELOPMENT_TEAM = 3GQZ9TL5M3;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = JobQueueTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.taiyungo.JobQueueTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

@@ -37,7 +37,7 @@ public class JobQueueCenter {
     }
     
     fileprivate lazy var storage: JobQueueStorage = {
-        let archivedQ = NSKeyedUnarchiver.unarchiveObject(withFile: storageURL.path)
+        let archivedQ = NSKeyedUnarchiver.unarchiveObject(withFile: JobQueueCenter.storageURL.path)
         
         if let queue = archivedQ as? JobQueueStorage {
             guard queue.isCompatible == true else {

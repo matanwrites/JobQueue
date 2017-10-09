@@ -7,13 +7,42 @@
 //
 
 import XCTest
+import Nimble
+import Quick
+
 @testable import JobQueue
 
-class JobQueueTests: XCTestCase {
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        XCTAssert(true, "Pass")
+class JobQueueCenterSpec: QuickSpec {
+    override func spec() {
+        describe("JobQueueCenter items") {
+            
+            beforeEach {
+                JobQueueCenter.current.flush()
+            }
+            
+            context("When no jobs") {
+                it("returns an empty array") {
+                    let s = JobQueueCenter.current.items
+                    
+                    expect(s).to(beEmpty())
+                }
+            }
+            
+            context("When has a job") {
+                it("returns a job") {
+                    JobQueueCenter.current.enqueue(job: DummyJob())
+                    expect(JobQueueCenter.current.items).toEventuallyNot(beEmpty(), timeout: 1)
+                }
+            }
+        }
+        
+        
+        describe("JobQueueCenter flush") {
+            it("empty the storage") {
+                JobQueueCenter.current.enqueue(job: DummyJob())
+                JobQueueCenter.current.flush()
+                expect(JobQueueCenter.current.items).toEventually(beEmpty(), timeout: 1)
+            }
+        }
     }
-    
 }
