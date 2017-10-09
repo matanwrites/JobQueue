@@ -13,7 +13,12 @@ before_install:
 - DESTINATION_UDID=$(instruments -s devices | grep "$DESTINATION \[" | sed -E 's/.*\[([0-9A-F-]+)\].*/\1/g')
 # Prelaunching simulator to avoid timeout https://github.com/travis-ci/travis-ci/issues/6422
 - open -a "simulator" --args -CurrentDeviceUDID $DESTINATION_UDID
+
+install:
+  - ./install_swiftlint.sh
+
 script:
+- swiftlint
 - set -o pipefail && xcodebuild test
  `` -enableCodeCoverage YES
  `` -project JobQueueExample/JobQueueExample.xcodeproj
