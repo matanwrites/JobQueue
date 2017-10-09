@@ -22,4 +22,4 @@ script:
  `` -destination "id=$DESTINATION_UDID"
  `` ONLY_ACTIVE_ARCH=NO
  `` | xcpretty
- `` && xcodebuild -project JobQueue.xcodeproj -scheme JobQueue -destination "id=$DESTINATION_UDID" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty
+ `` && xcodebuild -project JobQueue/JobQueue.xcodeproj -scheme JobQueue -destination "id=$DESTINATION_UDID" -configuration Release ONLY_ACTIVE_ARCH=NO ENABLE_TESTABILITY=YES test | xcpretty
