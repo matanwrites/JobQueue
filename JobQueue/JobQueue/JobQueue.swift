@@ -9,61 +9,51 @@
 import Foundation
 
 class JobQueue: NSObject, JobQueueStorage {
-    fileprivate var array = [Job]()
-
-//    var version: String = "myappversion"
-
-    var isCompatible: Bool {
-        return true
-    }
-
     private(set) var storageSaveDate = Date()
+    private var datastructure = [Job]()
 
     override init () {}
 
-    // MARK: Persistence
+
+
+    // MARK: - Asking about the state of the JobQueue
+    var isCompatible: Bool { return true }
+    var items: [Job] { return datastructure }
+    var isEmpty: Bool { return datastructure.isEmpty }
+    var count: Int { return datastructure.count }
+    var front: Job? { return datastructure.first }
+
+
+
+    // MARK: - Mutating the queue
+    func enqueue(_ element: Job) {
+        datastructure.append(element)
+    }
+
+    func dequeue() -> Job? {
+        return isEmpty == true ? nil : datastructure.removeFirst()
+    }
+
+    func dequeueAll() {
+        datastructure.removeAll()
+    }
+
+
+
+    // MARK: - Persistence
     required init?(coder aDecoder: NSCoder) {
         guard
-//            let version     = aDecoder.decodeObject(forKey: "version") as? String,
-            let array       = aDecoder.decodeObject(forKey: "array") as? [Job]
+            let datastructure       = aDecoder.decodeObject(forKey: "datastructure") as? [Job]
             else {
                 print("Error: JobQueue-initWithCoder")
                 return nil
         }
-
-//        self.version = version
-        self.array = array
-
+        self.datastructure = datastructure
         super.init()
     }
 
     func encode(with aCoder: NSCoder) {
         storageSaveDate = Date()
-//        aCoder.encode(version,                forKey: "version")
-        aCoder.encode(NSArray(array: array), forKey: "array")
-    }
-
-    var items: [Job] { return array }
-    var isEmpty: Bool { return array.isEmpty }
-    var count: Int { return array.count }
-
-    func enqueue(_ element: Job) {
-        array.append(element)
-    }
-
-    func dequeue() -> Job? {
-        if isEmpty {
-            return nil
-        } else {
-            return array.removeFirst()
-        }
-    }
-
-    func dequeueAll() {
-        array.removeAll()
-    }
-
-    var front: Job? {
-        return array.first
+        aCoder.encode(NSArray(array: datastructure), forKey: "datastructure")
     }
 }
