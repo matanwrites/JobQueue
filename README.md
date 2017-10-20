@@ -6,7 +6,7 @@
 
 Delayed JobQueue which can execute tasks between app launches
 
-**Supported Swift Versions:** Swift 3.1
+**Supported Swift Versions:** Swift 4.0
 
 
 ## Motivation
